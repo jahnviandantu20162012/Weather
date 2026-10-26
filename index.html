@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Check live weather conditions and a 5-day forecast for cities in India and around the world. Search a city to see temperature, humidity, wind, and more.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#f4f7fb">
+  <title>Live Weather Forecast for Cities Worldwide | Daylight</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="weather-app">
+    <aside class="sidebar" aria-label="Weather app navigation">
+      <a class="brand" href="#home"><span class="brand-icon" aria-hidden="true">☼</span> daylight</a>
+      <p class="side-label">YOUR PLACES</p>
+      <div class="city-list" id="city-list" aria-label="Choose a city"></div>
+      <p class="sidebar-note">Weather should feel simple. Pick a place and see what the day has in store.</p>
+      <div class="sample-note"><span aria-hidden="true">ⓘ</span> Live forecast data<br><small>Powered by Open-Meteo</small></div>
+    </aside>
+
+    <section class="main-panel" id="home">
+      <header class="topbar">
+        <div class="mobile-brand"><span class="brand-icon" aria-hidden="true">☼</span> daylight</div>
+        <form class="search" id="city-search" role="search">
+          <span aria-hidden="true">⌕</span>
+          <input id="city-input" type="search" placeholder="Search any city..." autocomplete="off" aria-label="Search any city worldwide">
+          <button type="submit">Search</button>
+          <div class="search-results" id="search-results" role="listbox" aria-label="Matching locations" hidden></div>
+        </form>
+        <div class="unit-switch" role="group" aria-label="Temperature unit">
+          <button type="button" class="unit active" data-unit="C" aria-pressed="true">°C</button>
+          <button type="button" class="unit" data-unit="F" aria-pressed="false">°F</button>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="page-heading">
+          <div><p class="eyebrow" id="today-label">TODAY</p><h1 id="city-title">San Francisco</h1><p class="location-line" id="location-line">California, United States</p></div>
+          <span class="demo-pill" id="data-status">CONNECTING…</span>
+        </div>
+
+        <section class="current-card" aria-label="Current weather">
+          <div class="current-copy">
+            <p class="condition" id="condition">Partly cloudy</p>
+            <div class="temperature"><span id="temperature">18</span><sup>°</sup></div>
+            <p class="feels-like">Feels like <span id="feels-like">17°</span></p>
+            <p class="high-low"><span id="high-low">H: 21° &nbsp; L: 14°</span></p>
+          </div>
+          <div class="weather-illustration" id="weather-illustration" aria-hidden="true"><span class="sun">☀</span><span class="cloud cloud-one"></span><span class="cloud cloud-two"></span></div>
+          <div class="card-footer"><span id="current-date">A little sunshine between the clouds.</span><span aria-hidden="true">✦</span></div>
+        </section>
+
+        <section class="forecast-section" aria-labelledby="forecast-title">
+          <div class="section-title"><div><p class="eyebrow">THE WEEK AHEAD</p><h2 id="forecast-title">5-day forecast</h2></div><span class="forecast-caption">A little look ahead</span></div>
+          <div class="forecast-grid" id="forecast-grid"></div>
+        </section>
+
+        <section class="details-section" aria-labelledby="details-title">
+          <div class="section-title"><div><p class="eyebrow">AT A GLANCE</p><h2 id="details-title">Today's details</h2></div></div>
+          <div class="details-grid">
+            <article class="detail-card"><span class="detail-icon" aria-hidden="true">◉</span><p>FEELS LIKE</p><strong id="detail-feels">17°</strong><span id="feels-description">Just about right</span></article>
+            <article class="detail-card"><span class="detail-icon" aria-hidden="true">♧</span><p>HUMIDITY</p><strong id="humidity">64%</strong><span>Comfortable air</span></article>
+            <article class="detail-card"><span class="detail-icon" aria-hidden="true">➤</span><p>WIND</p><strong id="wind">12 km/h</strong><span>Light breeze</span></article>
+            <article class="detail-card"><span class="detail-icon" aria-hidden="true">☼</span><p>UV INDEX</p><strong id="uv">4 <small>Moderate</small></strong><span>Take care in midday sun</span></article>
+          </div>
+        </section>
+        <footer>Weather data by Open-Meteo <span aria-hidden="true">☼</span></footer>
+      </div>
+    </section>
+    <p class="search-message" id="search-message" role="status" aria-live="polite"></p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
